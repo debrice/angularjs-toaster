@@ -1,0 +1,27 @@
+{
+  "name": "angularjs-toaster",
+  "version": "0.0.0",
+  "homepage": "https://github.com/debrice/angularjs-toaster",
+  "authors": [
+    "Brice Leroy <bbrriiccee@gmail.com>"
+  ],
+  "description": "A toaster service for angular JS web application",
+  "main": "dist/toaster.js",
+  "keywords": [
+    "flux",
+    "toaster",
+    "angular",
+    "angularjs"
+  ],
+  "dependencies": {
+    "lodash": "~3.8.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

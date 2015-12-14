@@ -1,0 +1,63 @@
+.mac-toasters
+  .mac-toaster.animates(ng-if="toasters.error.length > 0")
+    .mac-toaster-content.error
+      .mac-toaster-icon
+        i.icon.error
+
+      .mac-toaster-message(ng-show="toasters.error.length > 1")
+        span.notification-count {{ toasters.error.length }} Errors
+        span.notification-collapse(
+          ng-click = "toasters.error.collapsed = !toasters.error.collapsed"
+        ) &nbsp; Collapse
+
+      .mac-toaster-message(ng-show="toasters.error.length == 1")
+        button.button.right(
+          ng-show = "toasters.error[0].call_to_action"
+          ng-click = "toasters.error[0].promise.resolve()"
+        ) {{ toasters.error[0].call_to_action }}
+        | {{ toasters.error[0].message }}
+
+      i.icon.x(ng-click="dismissAll(toasters.error)")
+
+    ul.mac-toaster-aggregate(
+      ng-show = "toasters.error.length > 1"
+      ng-class = "{'collapsed': toasters.error.collapsed}"
+    )
+      li(ng-repeat = "toaster in toasters.error")
+        button.button.right(
+          ng-show = "toaster.call_to_action"
+          ng-click = "toaster.promise.resolve()"
+        ) {{ toaster.call_to_action }}
+        | {{ toaster.message }}
+
+
+  .mac-toaster.animates(ng-if="toasters.success.length > 0")
+    .mac-toaster-content.success
+      .mac-toaster-icon
+        i.icon.success
+
+      .mac-toaster-message(ng-show="toasters.success.length > 1")
+        span.notification-count {{ toasters.success.length }} Successes
+        span.notification-collapse(
+          ng-click = "toasters.success.collapsed = !toasters.success.collapsed"
+        ) &nbsp; Collapse
+
+      .mac-toaster-message(ng-show="toasters.success.length == 1")
+        button.button.right(
+          ng-show = "toasters.success[0].call_to_action"
+          ng-click = "toasters.success[0].promise.resolve()"
+        ) {{ toasters.success[0].call_to_action }}
+        | {{ toasters.success[0].message }}
+
+      i.icon.x(ng-click="dismissAll(toasters.success)")
+
+    ul.mac-toaster-aggregate(
+      ng-show = "toasters.success.length > 1"
+      ng-class = "{'collapsed': toasters.success.collapsed}"
+    )
+      li(ng-repeat = "toaster in toasters.success")
+        button.button.right(
+          ng-show = "toaster.call_to_action"
+          ng-click = "toaster.promise.resolve()"
+        ) {{ toaster.call_to_action }}
+        | {{ toaster.message }}
