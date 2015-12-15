@@ -30,3 +30,25 @@ html(
         div(ui-view="content")
         div(ui-view="toaster")
 ```
+
+Add the controller to your ui-router
+
+```coffee
+angular.module('my_app')
+  .config (
+    $stateProvider
+    $urlRouterProvider
+  ) ->
+    $stateProvider.state 'root',
+      abstract: true
+      url: '/'
+
+      views:
+        'dialog@':
+          controller: 'dialogCtrl'
+          templateUrl: 'dialog/template/dialog.html'
+
+        'toaster@':
+          controller: 'toasterCtrl'
+          templateUrl: 'toaster/template/toaster.html'
+```
